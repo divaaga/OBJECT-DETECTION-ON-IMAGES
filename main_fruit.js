@@ -26,14 +26,16 @@ function gotResult(error, results) {
 
 function draw() {
     image(img, 0, 0, canvas.width, canvas.height);
-    fill("red");
-    textSize(20);
-    text("Banana", 70, 15);
-    text("Peach", 300, 220);
-    noFill();
-    stroke("red");
-    rect(70, 15, canvas.width-300, canvas.height-200);
-    rect(300, 220, canvas.width-400, canvas.height-280);
+    if (status != "") {
+        for (i=0; i<objects.length; i++) {
+            fill("red");
+            textSize(20);
+            percent = floor(objects[i].confidence * 100)
+            text(objects[i].label + " " + percent + "%", objects[i].x + 10, objects[i].y + 15);
+            noFill();
+            stroke("#FF0000");
+            rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
+        }
 }
 
 function back() {
