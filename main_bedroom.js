@@ -35,7 +35,6 @@ function draw() {
             stroke("#FF0000");
             rect(objects[i].x, objects[i].y, objects[i].width, objects[i].height);
         }
-    }
 }
 
 function back() {
